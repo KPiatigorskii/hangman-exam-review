@@ -44,7 +44,6 @@ function updateWordDisplay() {
 }
 
 function handleGuess(letter) {
-  // chutou uma letra que tu já chutou antes
   if (guessedLetters.includes(letter)) {
     return;
   }
@@ -68,14 +67,12 @@ function handleGuess(letter) {
 }
 
 function updateMeltingSnowmanGraphic() {
-
   const meltingSnowmanContainer = document.querySelector('.MeltingSnowman');
   meltingSnowmanContainer.innerHTML = `<img src="assets/MeltingSnowman${imageCount}.png" alt="MeltingSnowman ${imageCount}">`;
   imageCount++;
 }
 
 function checkWinOrLose() {
-
   if (guessedLetters.join('') === wordToGuess) {
     const messageContainer = document.querySelector('.message');
     messageContainer.innerText = 'You win!';
