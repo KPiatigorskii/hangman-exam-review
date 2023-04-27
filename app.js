@@ -70,7 +70,7 @@ function handleGuess(letter) {
 function updateMeltingSnowmanGraphic() {
 
   const meltingSnowmanContainer = document.querySelector('.MeltingSnowman');
-  meltingSnowmanContainer.innerHTML = `<img src="msimages/MeltingSnowman${imageCount}.png" alt="MeltingSnowman ${imageCount}">`;
+  meltingSnowmanContainer.innerHTML = `<img src="assets/MeltingSnowman${imageCount}.png" alt="MeltingSnowman ${imageCount}">`;
   imageCount++;
 }
 
@@ -88,7 +88,7 @@ function checkWinOrLose() {
     const messageContainer = document.querySelector('.message');
     messageContainer.innerText = `You lose! The word was "${wordToGuess}".`;
     const meltingSnowmanContainer = document.querySelector('.MeltingSnowman');
-    meltingSnowmanContainer.innerHTML = `<img src="msimages/gameover.png" alt="gameover">`;
+    meltingSnowmanContainer.innerHTML = `<img src="assets/gameover.png" alt="gameover">`;
     const letterButtons = document.querySelectorAll('.letters button');
     letterButtons.forEach(button => {
       button.disabled = true;
