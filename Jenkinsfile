@@ -8,7 +8,8 @@ node{
     stage('checkout') {
             git \
                 credentialsId: 'github-creds', \
-                url: 'https://github.com/KPiatigorskii/hangman-exam-review.git'
+                url: 'https://github.com/KPiatigorskii/hangman-exam-review.git' \
+                branch: 'main'
         }
 
     stage('Build Docker image') {
@@ -16,7 +17,7 @@ node{
         sh 'ls -al'
         // sh 'docker build . -t hangman_app'
     }
-    
+
     stage('Pushes the Docker image to Docker Hub'){
         echo 'Hello'
     }
