@@ -32,6 +32,9 @@ node{
                 ls -l
                 ssh -o StrictHostKeyChecking=no ubuntu@${ec2_instanse} "rm -rf /home/ubuntu/hangman"
                 scp -o StrictHostKeyChecking=no -r ${WORKSPACE}  ubuntu@${ec2_instanse}:/home/ubuntu/hangman/
+                ssh -o StrictHostKeyChecking=no ubuntu@${ec2_instanse} 'docker login -u kpiatigorskii -p dckr_pat_6whSoke9x4b7XCwQjpztIE3QnOg'
+                ssh -o StrictHostKeyChecking=no ubuntu@${ec2_instanse} 'docker pull kpiatigorskii/hangman-app:hangman'
+                ssh -o StrictHostKeyChecking=no ubuntu@${ec2_instanse} 'docker run kpiatigorskii/hangman-app:hangman'
                 """
                 }
     }
