@@ -31,7 +31,7 @@ node{
                 echo "${WORKSPACE}"
                 ls -l
                 ssh -o StrictHostKeyChecking=no ubuntu@${ec2_instanse} "rm -rf /home/ubuntu/hangman"
-                scp -o StrictHostKeyChecking=no -r ${WORKSPACE}/Hangman-app  ubuntu@${ec2_instanse}:/home/ubuntu/hangman/
+                scp -o StrictHostKeyChecking=no -r ${WORKSPACE}  ubuntu@${ec2_instanse}:/home/ubuntu/hangman/
                 """
                 }
     }
