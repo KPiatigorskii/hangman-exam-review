@@ -8,7 +8,7 @@ node{
     stage('checkout') {
             git \
                 credentialsId: 'github-creds', \
-                url: 'https://github.com/KPiatigorskii/hangman-exam-review.git' \
+                url: 'https://github.com/KPiatigorskii/hangman-exam-review.git', \
                 branch: 'main'
         }
 
