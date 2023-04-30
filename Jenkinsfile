@@ -5,11 +5,18 @@
 // 5. Sends a notification to a Slack channel when the deployment is complete.
 
 node{
+    stage('checkout') {
+            git \
+                credentialsId: 'github-creds', \
+                url: 'https://github.com/KPiatigorskii/hangman-exam-review.git'
+        }
+
     stage('Build Docker image') {
         sh 'pwd'
         sh 'ls -al'
         // sh 'docker build . -t hangman_app'
     }
+    
     stage('Pushes the Docker image to Docker Hub'){
         echo 'Hello'
     }
