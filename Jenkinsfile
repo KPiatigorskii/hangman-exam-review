@@ -16,11 +16,23 @@ node{
         sh 'pwd'
         sh 'ls -al'
         sh 'docker build -t kpiatigorskii/hangman-app:hangman .'
+
     }
 
     stage('Pushes the Docker image to Docker Hub'){
         sh 'docker login -u kpiatigorskii -p dckr_pat_6whSoke9x4b7XCwQjpztIE3QnOg'
         //sh 'docker tag ${imageId} kpiatigorskii/hangman-app:hangman'
         sh 'docker push kpiatigorskii/hangman-app:hangman'
+    }
+
+    stage('Deploy'){
+            sshagent(['my-creds']) {
+                sh """
+                echo "${WORKSPACE}"
+                ls -l
+                ssh -o StrictHostKeyChecking=no ubuntu@${ec2_instanse} "rm -rf /home/ubuntu/hangman"
+                scp -o StrictHostKeyChecking=no -r ${WORKSPACE}/Hangman-app  ubuntu@${ec2_instanse}:/home/ubuntu/hangman/
+                """
+                }
     }
 }
