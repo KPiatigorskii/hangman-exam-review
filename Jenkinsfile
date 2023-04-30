@@ -6,6 +6,8 @@
 
 node{  
     stage('Build Docker image') {
+        sh 'pwd'
+        sh 'ls'
         sh 'docker build . -t hangman_app'
     }
     stage('Pushes the Docker image to Docker Hub'){
