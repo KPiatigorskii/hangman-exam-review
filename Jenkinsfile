@@ -4,21 +4,11 @@
 // 4. Deploys the Docker image to an EC2 instance using SSH and Docker commands.
 // 5. Sends a notification to a Slack channel when the deployment is complete.
 
-
-
-
-
-
-
-
-
-
-
 node{  
     stage('Build Docker image') {
         sh 'docker build . -t hangman_app'
     }
-    stage(){
-        
+    stage('Pushes the Docker image to Docker Hub'){
+        echo 'Hello'
     }
 }
