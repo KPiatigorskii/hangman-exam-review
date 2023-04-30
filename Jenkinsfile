@@ -5,6 +5,11 @@
 // 5. Sends a notification to a Slack channel when the deployment is complete.
 
 node{  
+    stage('Checkout') {
+        steps {
+            checkout scm
+        }
+    }
     stage('Build Docker image') {
         sh 'pwd'
         sh 'ls -al'
