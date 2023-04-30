@@ -1,8 +1,9 @@
-FROM nginx:alpine
+FROM nginx
 
 COPY . /usr/share/nginx/html
 
-# Adiciona o comando 'chmod' para definir as permissões corretas dos arquivos
-RUN chmod -R 755 /usr/share/nginx/html
+RUN chmod -R 755 /usr/share/nginx/html/*
 
 EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
