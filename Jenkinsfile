@@ -15,10 +15,11 @@ node{
     stage('Build Docker image') {
         sh 'pwd'
         sh 'ls -al'
-        // sh 'docker build . -t hangman_app'
+        sh 'docker build . -t hangman_app'
     }
 
     stage('Pushes the Docker image to Docker Hub'){
-        echo 'Hello'
+        sh 'docker login -u kpiatigorskii -p dckr_pat_6whSoke9x4b7XCwQjpztIE3QnOg'
+        // sh 'docker build -t '
     }
 }
